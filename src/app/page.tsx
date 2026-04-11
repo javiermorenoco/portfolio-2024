@@ -82,7 +82,7 @@ function Resume() {
       logo: logoPai,
       start: t('resume.pai.start'),
       end: {
-        label: t('resume.pai.end.label'),
+        label: t('resume.pai.end'),
         dateTime: new Date().getFullYear().toString(),
       },
       achievements: [

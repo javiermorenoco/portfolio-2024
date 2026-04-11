@@ -65,7 +65,7 @@ i18n
               start: '04/2020',
               end: '05/2021',
               company: 'Freelancer',
-              location: 'Bogotá, Colombia',
+              location: 'Bogota, Colombia',
               title: 'Frontend Developer',
               achievements: [
                 'Built app workflow and designed foundations and each component of the same.',
@@ -176,10 +176,7 @@ i18n
             },
             pai: {
               start: '05/2021',
-              end: {
-                label: 'Presente',
-                dateTime: new Date().getFullYear().toString(),
-              },
+              end: '02/2025',
               company: 'Pai Suscripciones',
               location: 'Cuernavaca, Morelos. México',
               title: 'Desarrollador frontend / Trabajo remoto',
