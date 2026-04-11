@@ -89,14 +89,6 @@ i18n
           projects: {
             title: 'Some things I’ve done...',
             intro: 'I’ve worked on variety of projects over the years but these are the ones that I’m most proud of. Although, some of them doesn\'t exist; others I\'m working on them right now. Please, check out the code and contribute if you have ideas for how it can be improved.',
-            cvPlast: {
-              name: 'CV Plast S.A.S',
-              description: 'CV Plast will be an e-commerce for the sale of products from the agroindustry. Developed with NextJS, TailwindCSS, React, Zustand. Developing.',
-              link: {
-                href: 'https://github.com/javiermorenoco/cvplast',
-                label: 'cvplast.com',
-              }
-            },
             zzardin: {
               name: 'Zzardin International S.A.S',
               description: 'E-commerce project for the sale of lingerie for women. Developed with React, MongoDB, NodeJS, Express and TailwindCSS. With payment gateway, user login and administration system. Not active currently.',
@@ -226,15 +218,7 @@ i18n
           }, 
           projects: {
             title: 'Algunos proyectos que he hecho...',
-            intro: 'He trabajado en varios proyectos a lo largo de los años, pero estos son los que me siento más orgulloso. Aunque algunos no existen, otros los estoy desarrollando en este momento. Por favor, revisa el código y contribuye si tienes ideas para mejorarlo.',
-            cvPlast: {
-              name: 'CV Plast S.A.S',
-              description: 'CV Plast será una e-commerce para la venta de productos de la agroindustria. Desarrollado con NextJS, TailwindCSS, React, Zustand. En desarrollo.',
-              link: {
-                href: 'https://github.com/javiermorenoco/cvplast',
-                label: 'cvplast.com',
-              }
-            },
+            intro: 'He trabajado en varios proyectos a lo largo de los años, pero estos son los que me siento más orgulloso. Aunque algunos no existen, otros los estoy desarrollando en este momento. Por favor, revisa el código y contribuye si tienes ideas para mejorarlo.', 
             zzardin: {
               name: 'Zzardin International S.A.S',
               description: 'Fue un proyecto de comercio electrónico para la venta de ropa interior femenina. Desarrollado con React, MongoDB, NodeJS, Express y TailwindCSS. Con pasarela de pago, login de usuario y sistema de administración. No activo actualmente.',

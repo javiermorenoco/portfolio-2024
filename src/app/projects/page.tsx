@@ -28,15 +28,6 @@ export default function Projects() {
 
   const projects = [
     {
-      name: t('projects.cvPlast.name'),
-      description: t('projects.cvPlast.description'),
-      link: {
-        href: t('projects.cvPlast.link.href'),
-        label: t('projects.cvPlast.link.label'),
-      },
-      logo: logoCVPlast,
-    },
-    {
       name: t('projects.zzardin.name'),
       description: t('projects.zzardin.description'),
       link: {

@@ -120,7 +120,7 @@ function Resume() {
           <Role key={roleIndex} role={role} />
         ))}
       </ol>
-      <div className="flex justify-end">
+      {/* <div className="flex justify-end">
         <Button
           href="https://jmoreno-cv.netlify.app/"
           variant="primary"
@@ -130,7 +130,7 @@ function Resume() {
           {t('resume.button')}
           <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
         </Button>
-      </div>
+      </div> */}
     </div>
   )
 }
