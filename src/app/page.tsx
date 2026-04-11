@@ -22,6 +22,19 @@ import logoFreelancer from '@/images/logos/freelancer.png'
 import logoPai from '@/images/logos/pai.jpeg'
 import portraitImage from '@/images/portrait.jpg'
 
+function buildSafeRel(
+  target?: React.HTMLAttributeAnchorTarget,
+  rel?: string,
+) {
+  if (target !== '_blank') return rel
+
+  const relParts = new Set((rel ?? '').split(' ').filter(Boolean))
+  relParts.add('noopener')
+  relParts.add('noreferrer')
+
+  return Array.from(relParts).join(' ')
+}
+
 function SocialLink({
   icon: Icon,
   ...props
@@ -29,7 +42,11 @@ function SocialLink({
   icon: React.ComponentType<{ className?: string }>
 }) {
   return (
-    <Link className="group -m-1 p-1" {...props}>
+    <Link
+      className="group -m-1 p-1"
+      {...props}
+      rel={buildSafeRel(props.target, props.rel)}
+    >
       <Icon className="h-8 w-8 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
     </Link>
   )

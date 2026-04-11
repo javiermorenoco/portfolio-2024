@@ -39,6 +39,7 @@ export function Footer() {
                 <Link
                   href={'https://x.com/jmorenoco'}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="px-2"
                 >
                   Javier Moreno

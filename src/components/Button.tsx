@@ -1,6 +1,19 @@
 import Link from 'next/link'
 import clsx from 'clsx'
 
+function buildSafeRel(
+  target?: React.HTMLAttributeAnchorTarget,
+  rel?: string,
+) {
+  if (target !== '_blank') return rel
+
+  const relParts = new Set((rel ?? '').split(' ').filter(Boolean))
+  relParts.add('noopener')
+  relParts.add('noreferrer')
+
+  return Array.from(relParts).join(' ')
+}
+
 const variantStyles = {
   primary:
     'bg-zinc-800 font-semibold text-zinc-100 hover:bg-zinc-700 active:bg-zinc-800 active:text-zinc-100/70 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-700 dark:active:text-zinc-100/70',
@@ -29,6 +42,10 @@ export function Button({
   return typeof props.href === 'undefined' ? (
     <button className={className} {...props} />
   ) : (
-    <Link className={className} {...props} />
+    <Link
+      className={className}
+      {...props}
+      rel={buildSafeRel(props.target, props.rel)}
+    />
   )
 }

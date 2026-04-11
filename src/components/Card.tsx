@@ -1,6 +1,19 @@
 import Link from 'next/link'
 import clsx from 'clsx'
 
+function buildSafeRel(
+  target?: React.HTMLAttributeAnchorTarget,
+  rel?: string,
+) {
+  if (target !== '_blank') return rel
+
+  const relParts = new Set((rel ?? '').split(' ').filter(Boolean))
+  relParts.add('noopener')
+  relParts.add('noreferrer')
+
+  return Array.from(relParts).join(' ')
+}
+
 function ChevronRightIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
@@ -38,7 +51,7 @@ Card.Link = function CardLink({
   return (
     <>
       <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 border border-zinc-300 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:border-zinc-800 dark:bg-zinc-800/50" />
-      <Link {...props}>
+      <Link {...props} rel={buildSafeRel(props.target, props.rel)}>
         <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
         <span className="relative z-10">{children}</span>
       </Link>
