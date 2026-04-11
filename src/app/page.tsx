@@ -148,7 +148,7 @@ export default function Home() {
             </div>
             <div className="flex flex-wrap items-center gap-x-8">
               <Button
-                href="mailto:contacto@jmoreno.co"
+                href="mailto:contacto@javiermoreno.co"
                 variant="primary"
                 className="group mt-8 w-full lg:w-fit"
               >
@@ -157,22 +157,22 @@ export default function Home() {
               </Button>
               <div className="mt-8 flex w-full justify-evenly gap-4 lg:w-fit lg:justify-start">
                 <SocialLink
-                  href="https://x.com/jmorenoco"
+                  href="https://x.com/javiermorenoco"
                   icon={XIcon}
                   target="_blank"
                 />
                 <SocialLink
-                  href="https://instagram.com/jmoreno.co"
+                  href="https://instagram.com/javiermorenoco"
                   icon={InstagramIcon}
                   target="_blank"
                 />
                 <SocialLink
-                  href="https://github.com/jmorenoco"
+                  href="https://github.com/javiermorenoco"
                   icon={GitHubIcon}
                   target="_blank"
                 />
                 <SocialLink
-                  href="https://www.linkedin.com/in/jmorenoco"
+                  href="https://www.linkedin.com/in/javiermorenoco"
                   icon={LinkedInIcon}
                   target="_blank"
                 />
