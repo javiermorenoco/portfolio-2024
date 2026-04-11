@@ -30,12 +30,26 @@ i18n
           },
           resume: {
             button: 'Check out my resume',
-            pai: { 
-              start: '05/2021',
+            servinformacion: { 
+              start: '08/2025',
               end: {
                 label: 'Present',
                 dateTime: new Date().getFullYear().toString(),
               },
+              company: 'Servinformacion',
+              location: 'Bogota, Colombia',
+              title: 'Development Engineer',
+              achievements: [
+                'Led the development of multiple geomarketing platforms for clients in Brazil, Colombia, and Ecuador, implementing demographic analysis, advanced cartographic visualizations, and interactive dashboards with Vue.js and Google Maps API',
+                'Designed and implemented automated deployment pipelines with Google Cloud Platform (App Engine), reducing deployment times and establishing versioning strategies for multiple development and production environments',
+                'Established a comprehensive unit testing suite for a geomarketing application with over 76,000 lines of code, implementing QA strategies and increasing system reliability',
+                'Conducted a thorough migration analysis from Vue.js 2 to 3 for a legacy project consisting of 177 components, documenting a complete modernization strategy with risk assessment and a phased implementation plan',
+                'Google Cloud Platform professional certifications: Google Cloud Digital Leader Credential, Google Workspace Sales Credential, Google Cloud SecOps Sales Credential, Associate Cloud Engineer',
+              ],
+            },
+            pai: { 
+              start: '05/2021',
+              end: '02/2025',
               company: 'Pai Suscriptions',
               location: 'Cuernavaca, Morelos. México',
               title: 'Frontend Developer / Remote Work',
@@ -63,9 +77,9 @@ i18n
           },
           home: {
             title: 'Hi, I´m Javier Moreno',
-            subtitle: 'Frontend developer, amateur cyclist and enthusiastic marathon runner',
-            description: '+3 years of experience building and maintaining responsive web applications, from Bogotá, Colombia.',
-            description2: 'I am a self-taught developer passionate about learning new technologies and creating attractive and functional products.',
+            subtitle: 'Software analysis and development Technologist, amateur cyclist and enthusiastic marathon runner',
+            description: '{{experienceDuration}} of experience building and maintaining responsive and useful web applications, from Bogotá, Colombia.',
+            description2: 'I’m a self-driven developer who brings structure and clarity to fast-paced environments. I focus on delivering measurable impact while continuously improving both technical and strategic skills.',
             contactMe: 'Contact me!',
             checkResume: 'Check out my resume'
           },
@@ -151,6 +165,23 @@ i18n
           },
           resume: {
             button: 'Revisa mi currículum',
+            servinformacion: { 
+              start: '08/2025',
+              end: {
+                label: 'Presente',
+                dateTime: new Date().getFullYear().toString(),
+              },
+              company: 'Servinformacion - Información Localizada S.A.S',
+              location: 'Bogotá, Colombia',
+              title: 'Ingeniero de Desarrollo',
+              achievements: [
+                'Lideré el desarrollo de múltiples plataformas de geomarketing para clientes en Brasil, Colombia y Ecuador, implementando análisis demográficos, visualizaciones cartográficas avanzadas y dashboards interactivos con Vue.js y Google Maps API',
+                'Diseñé e implementé pipelines de despliegue automatizado con Google Cloud Platform (App Engine), reduciendo tiempos de deployment y estableciendo estrategias de versionamiento para múltiples entornos de desarrollo y producción',
+                'Establecí suite completa de testing unitario para aplicación de geomarketing con más de 76,000 líneas de código, implementando estrategias de QA y aumentando la confiabilidad del sistema',
+                'Realicé análisis exhaustivo de migración de Vue.js 2 a 3 para proyecto legacy de 177 componentes, documentando estrategia completa de modernización con evaluación de riesgos y plan de implementación por fases',
+                'Certificaciones profesionales Google Cloud Platform: Google Cloud Digital Leader Credential, Google Workspace Sales Credential, Google Cloud SecOps Sales Credential, Associate Cloud Engineer',
+              ],
+            },
             pai: {
               start: '05/2021',
               end: {
@@ -184,9 +215,9 @@ i18n
           },
           home: {
             title: 'Hola, soy Javier Moreno',
-            subtitle: 'Desarrollador frontend, ciclista amateur y entusiasta de las carreras de maratón',
-            description: '+3 años de experiencia en la construcción y mantenimiento de aplicaciones web responsivas, de Bogotá, Colombia.',
-            description2: 'Soy un desarrollador autodidacta apasionado por aprender nuevas tecnologías y crear productos atractivos y funcionales.',
+            subtitle: 'Tecnólogo en Análisis y Desarrollo de Software, ciclista amateur y entusiasta de las carreras de maratón',
+            description: '{{experienceDuration}} de experiencia en la construcción y mantenimiento de aplicaciones web responsivas y funcionales, de Bogotá, Colombia.',
+            description2: 'Soy un desarrollador proactivo que aporta estructura y claridad a entornos dinámicos. Me centro en generar un impacto medible, mejorando continuamente mis habilidades técnicas y estratégicas.',
             contactMe: '¡Contáctame!',
             checkResume: 'Revisa mi currículum'
           },

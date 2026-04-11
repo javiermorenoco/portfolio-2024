@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useTranslation } from 'react-i18next'
+import { getExperienceDuration } from '@/lib/getExperienceDuration'
 
 import { Role } from '@/components/Role'
 import { Button } from '@/components/Button'
@@ -21,6 +22,7 @@ import { MailIcon, BriefcaseIcon, ArrowDownIcon } from '@/components/UtilIcons'
 import logoFreelancer from '@/images/logos/freelancer.png'
 import logoPai from '@/images/logos/pai.jpeg'
 import portraitImage from '@/images/portrait.jpg'
+import logoServi from '@/images/logos/servi_icon.png'
 
 function buildSafeRel(
   target?: React.HTMLAttributeAnchorTarget,
@@ -55,6 +57,24 @@ function SocialLink({
 function Resume() {
   const { t } = useTranslation()
   let resume: Array<Role> = [
+    {
+      company: t('resume.servinformacion.company'),
+      location: t('resume.servinformacion.location'),
+      title: t('resume.servinformacion.title'),
+      logo: logoServi,
+      start: t('resume.servinformacion.start'),
+      end: {
+        label: t('resume.servinformacion.end.label'),
+        dateTime: new Date().getFullYear().toString(),
+      },
+      achievements: [
+        t('resume.servinformacion.achievements.0'),
+        t('resume.servinformacion.achievements.1'),
+        t('resume.servinformacion.achievements.2'),
+        t('resume.servinformacion.achievements.3'),
+        t('resume.servinformacion.achievements.4'),
+      ],
+    },
     {
       company: t('resume.pai.company'),
       location: t('resume.pai.location'),
@@ -116,7 +136,9 @@ function Resume() {
 }
 
 export default function Home() {
-  const { t } = useTranslation()  
+  const { t, i18n } = useTranslation()
+  const experienceDuration = getExperienceDuration(i18n.language)
+
   return (
     <>
       <Container className="mt-16 sm:mt-32">
@@ -140,7 +162,7 @@ export default function Home() {
             </h3>
             <div className="mt-6 space-y-2 text-base text-zinc-600 dark:text-zinc-400">
               <p className="text-balance">
-                {t('home.description')}
+                {t('home.description', { experienceDuration })}
               </p>
               <p className="text-balance">
                 {t('home.description2')}
