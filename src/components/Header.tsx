@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useSyncExternalStore } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -141,8 +141,12 @@ function MobileNavigation(
             <nav className="mt-6">
               <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
                 <MobileNavItem href="/">{t('navigation.about')}</MobileNavItem>
-                <MobileNavItem href="/projects">{t('navigation.projects')}</MobileNavItem>
-                <MobileNavItem href="/contact">{t('navigation.contact')}</MobileNavItem>
+                <MobileNavItem href="/projects">
+                  {t('navigation.projects')}
+                </MobileNavItem>
+                <MobileNavItem href="/contact">
+                  {t('navigation.contact')}
+                </MobileNavItem>
               </ul>
             </nav>
           </PopoverPanel>
@@ -159,7 +163,7 @@ function NavItem({
   href: string
   children: React.ReactNode
 }) {
-  let isActive = usePathname() === href 
+  let isActive = usePathname() === href
   return (
     <li>
       <Link
@@ -184,7 +188,7 @@ function DesktopNavigation(props: React.ComponentPropsWithoutRef<'nav'>) {
   const { t } = useTranslation()
   return (
     <nav {...props}>
-      <div className="flex flex-row justify-between items-center gap-4">
+      <div className="flex flex-row items-center justify-between gap-4">
         <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
           <NavItem href="/">{t('navigation.about')}</NavItem>
           <NavItem href="/projects">{t('navigation.projects')}</NavItem>
@@ -195,15 +199,23 @@ function DesktopNavigation(props: React.ComponentPropsWithoutRef<'nav'>) {
   )
 }
 
+// El tema resuelto solo se conoce en el cliente, así que en el servidor
+// devolvemos false y React reconcilia el valor al hidratar. useSyncExternalStore
+// existe justo para esto: evita el setState-en-efecto y su render en cascada.
+const emptySubscribe = () => () => {}
+
+function useMounted() {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  )
+}
+
 function ThemeToggle() {
   let { resolvedTheme, setTheme } = useTheme()
   let otherTheme = resolvedTheme === 'dark' ? 'light' : 'dark'
-  let [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- next-themes: resolvedTheme solo existe en cliente, marcamos el montaje para evitar un hydration mismatch
-    setMounted(true)
-  }, [])
+  let mounted = useMounted()
 
   return (
     <button
