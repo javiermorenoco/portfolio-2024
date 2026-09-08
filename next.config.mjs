@@ -1,10 +1,8 @@
-import nextMDX from '@next/mdx'
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
   async headers() {
     return [
       {
@@ -32,13 +30,4 @@ const nextConfig = {
   },
 }
 
-const withMDX = nextMDX({
-  extension: /\.mdx?$/,
-  options: {
-    // Turbopack requiere los plugins como strings, no como funciones importadas
-    remarkPlugins: [['remark-gfm']],
-    rehypePlugins: [],
-  },
-})
-
-export default withMDX(nextConfig)
+export default nextConfig
