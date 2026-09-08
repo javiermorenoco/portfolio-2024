@@ -1,12 +1,19 @@
 import { type Metadata } from 'next'
 
+import avatarImage from '@/images/avatar.png'
+
 import { Providers } from '@/app/providers'
 import { Layout } from '@/components/Layout'
 import { Analytics } from '@vercel/analytics/react'
 
 import '@/styles/tailwind.css'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://javiermoreno.co'
+
 export const metadata: Metadata = {
+  // Sin metadataBase, Next resuelve las URL relativas contra localhost:3000
+  // y las previsualizaciones al compartir el sitio quedan rotas.
+  metadataBase: new URL(siteUrl),
   title: {
     template: '%s - Javier Moreno',
     default: 'Javier Moreno - Desarrollador Frontend',
@@ -14,16 +21,21 @@ export const metadata: Metadata = {
   description:
     'Soy Javier, un desarrollador frontend cuyo objetivo es transformar ideas en aplicaciones web dinámicas y efectivas. Disfruto el proceso de convertir conceptos complejos en soluciones simples y elegantes. Además de mi pasión por la programación, corro y ando en bicicleta, actividades que me enseñan a mantenerme enérgico y resiliente frente a cualquier desafío.',
   openGraph: {
+    type: 'website',
+    url: siteUrl,
     images: [
       {
-        url: '/images/avatar.png',
+        url: avatarImage.src,
+        width: avatarImage.width,
+        height: avatarImage.height,
+        alt: 'Javier Moreno',
       },
     ],
   },
-  alternates: {
-    types: {
-      'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
-    },
+  // El avatar es casi cuadrado, así que 'summary' lo muestra sin recortes;
+  // 'summary_large_image' espera una imagen apaisada.
+  twitter: {
+    card: 'summary',
   },
 }
 
