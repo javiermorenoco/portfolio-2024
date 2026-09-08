@@ -1,5 +1,4 @@
 import nextMDX from '@next/mdx'
-import remarkGfm from 'remark-gfm'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -36,7 +35,8 @@ const nextConfig = {
 const withMDX = nextMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkGfm],
+    // Turbopack requiere los plugins como strings, no como funciones importadas
+    remarkPlugins: [['remark-gfm']],
     rehypePlugins: [],
   },
 })

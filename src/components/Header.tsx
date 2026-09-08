@@ -201,6 +201,7 @@ function ThemeToggle() {
   let [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- next-themes: resolvedTheme solo existe en cliente, marcamos el montaje para evitar un hydration mismatch
     setMounted(true)
   }, [])
 
