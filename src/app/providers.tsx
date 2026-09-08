@@ -8,12 +8,13 @@ import i18n from '@/lib/i18n'
 
 
 function usePrevious<T>(value: T) {
-  let ref = useRef<T>()
+  let ref = useRef<T | undefined>(undefined)
 
   useEffect(() => {
     ref.current = value
   }, [value])
 
+  // eslint-disable-next-line react-hooks/refs -- patrón estándar de usePrevious: se lee el valor del render anterior
   return ref.current
 }
 
