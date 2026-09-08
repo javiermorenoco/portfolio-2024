@@ -1,19 +1,64 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss';
 
-@layer components {
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --text-*: initial;
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.5rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.75rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 2rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2rem;
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 2.25rem;
+  --text-4xl: 2rem;
+  --text-4xl--line-height: 2.5rem;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 3.5rem;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1;
+  --text-7xl: 4.5rem;
+  --text-7xl--line-height: 1;
+  --text-8xl: 6rem;
+  --text-8xl--line-height: 1;
+  --text-9xl: 8rem;
+  --text-9xl--line-height: 1;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility contact-form {
   /* 
      ********** Contact form ********* 
   */
+  margin-inline: auto;
+  padding: 1rem;
+  max-width: 800px;
 
-  .contact-form {
-    margin-inline: auto;
-    padding: 1rem;
-    max-width: 800px;
-  }
-
-  .contact-form > * {
+  & > * {
     padding: 1rem;
     margin: 1.5rem auto;
     display: block;
@@ -22,54 +67,54 @@
     outline: none;
   }
 
-  .contact-form *::placeholder {
+  & *::placeholder {
     font-size: 0.9rem;
   }
 
-  .contact-form textarea {
+  & textarea {
     border-radius: 0.5rem;
     resize: none;
   }
 
-  .contact-form input[type='submit'] {
+  & input[type='submit'] {
     margin-top: 0;
     cursor: pointer;
     transition: all 0.5s ease-out;
     text-align: center;
   }
 
-  .contact-form input[type='submit']:hover {
+  & input[type='submit']:hover {
     opacity: 0.75;
   }
+}
 
-  .contact-form-response {
-    padding: 2rem;
-    width: 400px;
-    text-align: center;
-    background-color: #fff;
-  }
+@utility contact-form-response {
+  padding: 2rem;
+  width: 400px;
+  text-align: center;
+  background-color: #fff;
+}
 
-  .modal {
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: #555;
-    display: grid;
-    place-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.8s;
-  }
+@utility modal {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #555;
+  display: grid;
+  place-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.8s;
 
-  .modal#gracias:target {
+  &#gracias:target {
     opacity: 1;
     pointer-events: auto;
   }
+}
 
-  .modal-content {
-    position: relative;
-  }
+@utility modal-content {
+  position: relative;
 }
